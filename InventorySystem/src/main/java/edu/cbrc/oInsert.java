@@ -1,14 +1,11 @@
-package org.example;
+package edu.cbrc;
 
 public class oInsert implements Operation {
 
-    private String operationPermission;
-    private String operationName;
+    private final String operationPermission = "reduced";
+    private final String operationName = "INSERT";
+    private final String operationDescription = "Insert new item into inventory";
 
-    public oInsert(String operationPermission, String operationName) {
-        this.operationPermission = operationPermission;
-        this.operationName = operationName;
-    }
     @Override
     public String getPermission() {
         return operationPermission;
@@ -17,5 +14,10 @@ public class oInsert implements Operation {
     @Override
     public String getName() {
         return operationName;
+    }
+
+    @Override
+    public String getDescription() {
+        return operationDescription;
     }
 }

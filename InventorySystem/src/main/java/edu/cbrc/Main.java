@@ -1,6 +1,7 @@
-package org.example;
+package edu.cbrc;
 
 import java.sql.*;
+
 
 public class Main {
 

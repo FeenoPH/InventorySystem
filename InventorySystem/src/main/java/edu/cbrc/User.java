@@ -1,5 +1,6 @@
-package org.example;
+package edu.cbrc;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.sql.*;
 
@@ -15,6 +16,11 @@ public class User {
 
     public void displayAccessPortal() {
         System.out.println("--" + userName + "'s inventory portal--\n");
+        ArrayList<Operation> availableOperations = new ArrayList<Operation>();
+        Operation[] totalOperations = new Operation[] {new oInsert()};
+        for (Operation totalOperation : totalOperations) {
+            // Implementation here
+        }
     }
 
     private static User register(String userNameInput) {
@@ -58,6 +64,7 @@ public class User {
                     }
                     else {
                         System.out.println("Invalid username or password! Please try again.");
+                        conn.close();
                         return logIn();
                     }
                 }
