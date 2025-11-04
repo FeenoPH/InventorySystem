@@ -82,7 +82,14 @@ public class oDisplay implements Operation {
         try (Connection conn = DriverManager.getConnection(url)) {
             conn.setAutoCommit(false);
             if (sortMode == 5) {
-                // Implement sortMode 5
+                try (Statement st = conn.createStatement()) {
+                    double total = 0;
+                    ResultSet rs = st.executeQuery("SELECT * FROM inventory");
+                    while (rs.next()) {
+                        total += (rs.getDouble("itemPrice") * rs.getInt("itemQuantity"));
+                    }
+                    System.out.println("Total price across all items: $" + total);
+                }
                 return 0;
             }
             else {
@@ -100,5 +107,4 @@ public class oDisplay implements Operation {
         }
         return 0;
     }
-
 }
